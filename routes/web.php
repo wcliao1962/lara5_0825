@@ -17,3 +17,13 @@ Route::get('/', function () {
 Route::get('/home', 'HomeController@index');
 
 Route::get('/hello/{name?}', ['as'=>'hello.index', 'uses'=>'HelloController@index']);
+
+Route::get('/posts', function (){
+   return view('posts.index');
+});
+Route::get('/posts/about', function (){
+    return view('posts.about');
+});
+Route::get('/posts/post', function (){
+    return view('posts.post');
+});
