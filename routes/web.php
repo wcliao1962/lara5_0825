@@ -12,7 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    \App\Post::create([
+        'title'=>'test title',
+        'content'=>'test content'
+    ]);
+
 });
 Route::get('/home', 'HomeController@index');
 
