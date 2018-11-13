@@ -13,10 +13,15 @@
 
 Route::get('/', function () {
     //return view('welcome');
-    \App\Post::create([
-        'title'=>'test title',
-        'content'=>'test content'
-    ]);
+//    \App\Post::create([
+//        'title'=>'test title',
+//        'content'=>'test content'
+//    ]);
+
+    $post = new \App\Post();
+    $post->title = 'test title2';
+    $post->content = 'test content2';
+    $post->save();
 
 });
 Route::get('/home', 'HomeController@index');
