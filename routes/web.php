@@ -18,10 +18,13 @@ Route::get('/', function () {
 //        'content'=>'test content'
 //    ]);
 
-    $post = new \App\Post();
-    $post->title = 'test title2';
-    $post->content = 'test content2';
-    $post->save();
+//    $post = new \App\Post();
+//    $post->title = 'test title2';
+//    $post->content = 'test content2';
+//    $post->save();
+
+    $posts = \App\Post::all();
+    dd($posts);
 
 });
 Route::get('/home', 'HomeController@index');
