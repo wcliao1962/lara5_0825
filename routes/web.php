@@ -49,11 +49,15 @@ Route::get('/', function () {
 
 //    $allPosts = \App\Post::all();
 //    dd($allPosts);
-    
-    $featuredPosts = \App\Post::where('is_feature', 1)->get();
-    dd($featuredPosts);
 
+//    $featuredPosts = \App\Post::where('is_feature', 1)->get();
+//    dd($featuredPosts);
 
+//    $post = \App\Post::find(4);
+//    dd($post);
+
+    $lastPost = \App\Post::orderBy('id', 'DESC')->first();
+    dd($lastPost);
 
 
 });
