@@ -47,7 +47,7 @@ Route::get('/', function () {
 //    $post->delete();
 
 
-//    $allPosts = \App\Post::all();
+    $allPosts = \App\Post::all();
 //    dd($allPosts);
 
 //    $featuredPosts = \App\Post::where('is_feature', 1)->get();
@@ -59,10 +59,18 @@ Route::get('/', function () {
 //    $lastPost = \App\Post::orderBy('id', 'DESC')->first();
 //    dd($lastPost);
 
-    $post = \App\Post::find(6);
-    echo $post->id.'   '.$post->title.'<br><hr>';
-    foreach($post->comments as $comment) {
-        echo '*'.$comment->content.'<br>';
+//    $post = \App\Post::find(6);
+//    echo $post->id.'   '.$post->title.'<br><hr>';
+//    foreach($post->comments as $comment) {
+//        echo '*'.$comment->content.'<br>';
+//    }
+
+
+    foreach($allPosts as $post) {
+        echo '<br><hr>'.$post->id.'   '.$post->title.'<br><hr>';
+        foreach($post->comments as $comment) {
+            echo '*'.$comment->content.'<br>';
+        }
     }
 
 
