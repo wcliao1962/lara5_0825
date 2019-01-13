@@ -66,12 +66,14 @@ Route::get('/', function () {
 //    }
 
 
-    foreach($allPosts as $post) {
-        echo '<br><hr>'.$post->id.'   '.$post->title.'<br><hr>';
-        foreach($post->comments as $comment) {
-            echo '*'.$comment->content.'<br>';
-        }
-    }
+//    foreach($allPosts as $post) {
+//        echo '<br><hr>'.$post->id.'   '.$post->title.'<br><hr>';
+//        foreach($post->comments as $comment) {
+//            echo '*'.$comment->content.'<br>';
+//        }
+//    }
+    return view('index', ['posts'=>$allPosts]);
+
 
 
 
