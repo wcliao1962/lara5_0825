@@ -29,22 +29,13 @@
                     <!-- Post title -->
                     <div class="post-title">
                         <h2>
-                            <a href="#">
+                            <a href="{{route('post.show', $post->id)}}">
                                 {{$post->title}}
                             </a>
                         </h2>
 
                         <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> {{$post->created_at}}</p>
                     </div>
-
-                    <!-- Post Comments -->
-
-                    @foreach($post->comments as $comment)
-                        ***************
-                        {{$comment->content}}
-                        <br>
-                    @endforeach
-
                     <hr>
                 @endforeach
                 <hr>

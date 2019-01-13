@@ -78,6 +78,12 @@ Route::get('/', function () {
 
 
 });
+
+Route::get('/post/{id}', function ($id){
+    $post = \App\Post::find($id);
+    return view('post', ['post'=>$post]);
+})->name('post.show');
+
 Route::get('/home', 'HomeController@index');
 
 Route::get('/hello/{name?}', ['as'=>'hello.index', 'uses'=>'HelloController@index']);
