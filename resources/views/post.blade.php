@@ -45,6 +45,22 @@
                         <br>
                     @endforeach
                     <hr>
+                    <div class="row" style="padding:20px 0;">
+                        <div class="col-md-10 col-md-offset-1">
+                            <h3>
+                                發表回應
+                            </h3>
+                            <form method="POST" action="{{ route('post.comment.store',['post'=>$post->id]) }}">
+                                {{ csrf_field() }}
+                                <label for="content">回應</label>
+                                <div class="form-group">
+                                    <textarea name="content" class="form-control" rows="5" style="resize:vertical;"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">發表</button>
+                            </form>
+                        </div>
+                    </div>
+
 
                 </div>
             </div>

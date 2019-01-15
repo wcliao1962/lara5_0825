@@ -84,6 +84,8 @@ Route::get('/post/{id}', function ($id){
     return view('post', ['post'=>$post]);
 })->name('post.show');
 
+Route::resource('post.comment', 'CommentsController', ['only' => ['store', 'destroy']]);
+
 Route::get('/home', 'HomeController@index');
 
 Route::get('/hello/{name?}', ['as'=>'hello.index', 'uses'=>'HelloController@index']);
