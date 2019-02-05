@@ -47,7 +47,7 @@ Route::get('/', function () {
 //    $post->delete();
 
 
-    $allPosts = \App\Post::all();
+//    $allPosts = \App\Post::all();
 //    dd($allPosts);
 
 //    $featuredPosts = \App\Post::where('is_feature', 1)->get();
@@ -72,7 +72,31 @@ Route::get('/', function () {
 //            echo '*'.$comment->content.'<br>';
 //        }
 //    }
-    return view('index', ['posts'=>$allPosts]);
+//    return view('index', ['posts'=>$allPosts]);
+
+
+    $post = new \App\Post();
+    $post->title = 'test title99';
+    $post->content = 'test content99';
+    $post->save();
+
+    $comments=[
+        [
+            'content'=> 'comment1'
+        ],
+        [
+            'content'=> 'comment2'
+        ],
+        [
+            'content'=> 'comment3'
+        ],
+    ];
+
+    foreach($comments as $comment){
+        $post->comments()->create($comment);
+
+    };
+
 
 
 
