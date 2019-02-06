@@ -75,11 +75,12 @@ Route::get('/', function () {
 //    return view('index', ['posts'=>$allPosts]);
 
 
-    $post = new \App\Post();
+    $post = new \App\Post();    // Create a new Post
     $post->title = 'test title99';
     $post->content = 'test content99';
-    $post->save();
+    $post->save();              //Save the new Post
 
+    // Suppose the new Post has the following three new Comments
     $comments=[
         [
             'content'=> 'comment1'
@@ -92,8 +93,9 @@ Route::get('/', function () {
         ],
     ];
 
+
     foreach($comments as $comment){
-        $post->comments()->create($comment);
+        $post->comments()->create($comment);  //To save the new Post's Comment
 
     };
 
