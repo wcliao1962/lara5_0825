@@ -75,31 +75,42 @@ Route::get('/', function () {
 //    return view('index', ['posts'=>$allPosts]);
 
 
-    $post = new \App\Post();    // Create a new Post
-    $post->title = 'test title99';
-    $post->content = 'test content99';
-    $post->save();              //Save the new Post
+//    $post = new \App\Post();    // Create a new Post
+//    $post->title = 'test title99';
+//    $post->content = 'test content99';
+//    $post->save();              //Save the new Post
+//
+//    // Suppose the new Post has the following three new Comments
+//    $comments=[
+//        [
+//            'content'=> 'comment1'
+//        ],
+//        [
+//            'content'=> 'comment2'
+//        ],
+//        [
+//            'content'=> 'comment3'
+//        ],
+//    ];
+//
+//
+//    foreach($comments as $comment){
+//        $post->comments()->create($comment);  //To save the new Post's Comment
+//
+//    };
 
-    // Suppose the new Post has the following three new Comments
-    $comments=[
-        [
-            'content'=> 'comment1'
-        ],
-        [
-            'content'=> 'comment2'
-        ],
-        [
-            'content'=> 'comment3'
-        ],
-    ];
 
+    $post = App\Post::find(1);
 
-    foreach($comments as $comment){
-        $post->comments()->create($comment);  //To save the new Post's Comment
+    //save one Comment
+    $comment = new App\Comment(['content' => 'A new comment.']);
+    $post->comments()->save($comment);
 
-    };
-
-
+    //save many Comments
+    $post->comments()->saveMany([
+        new App\Comment(['content' => 'A new new comment.']),
+        new App\Comment(['content' => 'Another comment.']),
+    ]);
 
 
 
