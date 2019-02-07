@@ -100,18 +100,23 @@ Route::get('/', function () {
 //    };
 
 
-    $post = App\Post::find(1);
+//    $post = App\Post::find(1);
 
     //save one Comment
-    $comment = new App\Comment(['content' => 'A new comment.']);
-    $post->comments()->save($comment);
+//    $comment = new App\Comment(['content' => 'A new comment.']);
+//    $post->comments()->save($comment);
 
     //save many Comments
-    $post->comments()->saveMany([
-        new App\Comment(['content' => 'A new new comment.']),
-        new App\Comment(['content' => 'Another comment.']),
-    ]);
+//    $post->comments()->saveMany([
+//        new App\Comment(['content' => 'A new new comment.']),
+//        new App\Comment(['content' => 'Another comment.']),
+//    ]);
 
+    //update the Post and its Comments concurrently
+    $post = App\Post::find(20);
+    $post->title='title20';
+    $post->comments[0]->content = 'Message20';
+    $post->push();
 
 
 });
